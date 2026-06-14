@@ -1,0 +1,214 @@
+---
+import { Icon } from "astro-icon/components";
+
+// Control para mostrar u ocultar la sección de proyectos
+const showProjects = false;
+
+const projects = [
+    {
+        name: "Sitio Web Institucional Administrable",
+        description:
+        "Plataforma web institucional con panel administrativo para la gestión de contenido, noticias, identidad institucional, propuesta educativa y comunicación con la comunidad educativa.",
+        image: "/images/no_image.png",
+        status: "Próximamente",
+        techs: [
+            { icon: "logos:astro-icon", label: "Astro" },
+            { icon: "logos:vue", label: "Vue.js" },
+            { icon: "logos:laravel", label: "Laravel" },
+            { icon: "logos:mysql", label: "MySQL" },
+            { icon: "logos:tailwindcss-icon", label: "Tailwind CSS" }
+        ]
+    },
+    {
+        name: "Sistema de Gestión de Notas",
+        description:
+        "Sistema académico orientado al registro y administración de notas, estudiantes, docentes, cursos, reportes y procesos educativos internos.",
+        image: "/images/no_image.png",
+        status: "Próximamente",
+        techs: [
+            { icon: "logos:astro-icon", label: "Astro" },
+            { icon: "logos:vue", label: "Vue.js" },
+            { icon: "logos:laravel", label: "Laravel" },
+            { icon: "logos:mysql", label: "MySQL" },
+            { icon: "logos:tailwindcss-icon", label: "Tailwind CSS" }
+        ]
+    }
+];
+---
+
+<section
+    id="proyectos"
+    class="py-20 lg:py-28 relative overflow-hidden"
+    aria-labelledby="projects-heading"
+>
+    <div
+        class="absolute inset-0  from-background via-secondary/10 to-background pointer-events-none"
+        aria-hidden="true"
+    ></div>
+
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+
+        <!-- HEADER-->
+        <div class="mb-10 lg:mb-14 reveal-on-scroll">
+        <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-mono font-semibold text-primary tracking-widest uppercase">
+            03 · Proyectos
+            </span>
+
+            <div
+            class="flex-1 h-px bg-border max-w-24"
+            aria-hidden="true"
+            ></div>
+        </div>
+
+        <h2
+            id="projects-heading"
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
+        >
+            Proyectos Desarrollados
+        </h2>
+
+        <p class="mt-3 text-base text-muted-foreground max-w-xl">
+            Sistemas desarrollados en entornos reales, con impacto directo en usuarios e instituciones.
+        </p>
+        </div>
+
+        <!-- GRID DE PROYECTOS -->
+        {
+            showProjects ? (
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
+
+                    {projects.map((project) => (
+                        <article
+                            class="bg-card border border-border rounded-2xl overflow-hidden card-lift group flex flex-col h-full"
+                        >
+
+                            <div class="relative h-64 overflow-hidden">
+
+                                <img
+                                    src={project.image}
+                                    alt={project.name}
+                                    class="w-full h-full object-cover object-center"
+                                />
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-muted/90 backdrop-blur-sm border border-border rounded-full">
+                                    <span class="text-xs font-mono text-muted-foreground">
+                                        {project.status}
+                                    </span>
+                                </div>
+
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white leading-tight">
+                                        {project.name}
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="p-5 sm:p-6 flex flex-col flex-1">
+
+                                <p class="text-sm sm:text-base text-muted-foreground leading-relaxed mb-5 flex-1">
+                                    {project.description}
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+                                    {project.techs.map((tech) => (
+                                        <span
+                                            class="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono bg-primary/10 text-primary border border-primary/20 rounded-md"
+                                        >
+                                            <Icon
+                                                name={tech.icon}
+                                                class="w-4 h-4"
+                                            />
+
+                                            {tech.label}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div class="flex gap-3 mt-auto">
+
+                                    <button
+                                        disabled
+                                        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-muted-foreground bg-muted/50 border border-border rounded-lg cursor-not-allowed opacity-50"
+                                    >
+                                        <Icon
+                                            name="tabler:brand-github"
+                                            class="w-4 h-4"
+                                        />
+
+                                        GitHub
+                                    </button>
+
+                                    <button
+                                        disabled
+                                        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-muted-foreground bg-muted/50 border border-border rounded-lg cursor-not-allowed opacity-50"
+                                    >
+                                        <Icon
+                                            name="tabler:external-link"
+                                            class="w-4 h-4"
+                                        />
+
+                                        Demo
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+                    ))}
+
+                </div>
+
+            ) : (
+
+                <div class="bg-card border border-border rounded-2xl p-10 lg:p-14 text-center">
+                    
+                    <div class="flex justify-center mb-5">
+                        <Icon
+                            name="tabler:folder-code"
+                            class="w-12 h-12 text-primary"
+                        />
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-foreground mb-3">
+                        Próximamente
+                    </h3>
+
+                    <p class="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                        Actualmente me encuentro desarrollando nuevos proyectos que serán incorporados próximamente al portafolio.
+                    </p>
+
+                </div>
+
+            )
+        }
+
+        <!-- VER TODOS LOS REPOSITORIOS -->
+        <!-- <div class="mt-10 reveal-on-scroll flex justify-center">
+            <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-foreground bg-card border border-border rounded-xl hover:border-primary/50 hover:bg-muted/50 transition-all"
+            >
+                <Icon
+                name="tabler:brand-github"
+                class="w-5 h-5 text-primary"
+                />
+
+                Ver todos los repositorios en GitHub
+
+                <Icon
+                name="tabler:arrow-right"
+                class="w-4 h-4 text-muted-foreground"
+                />
+            </a>
+        </div> -->
+
+    </div>
+</section>

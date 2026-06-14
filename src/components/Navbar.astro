@@ -1,63 +1,100 @@
-<nav
-  class="fixed top-0 left-0 w-full bg-[#0f0f14]/90 backdrop-blur border-b border-[#1a1a24] z-50"
+---
+const navLinks = [
+  { label: "Inicio",       href: "#inicio"      },
+  { label: "Sobre mí",     href: "#sobre-mi"    },
+  { label: "Tecnologías",  href: "#tecnologias" },
+  { label: "Proyectos",    href: "#proyectos"   },
+  { label: "Experiencia",  href: "#experiencia" },
+  { label: "Contacto",     href: "#contacto"    },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3">
+      <a
+        href="/"
+        class="flex items-center gap-2.5 group"
+        aria-label="MC Portfolio"
+      >
         <div
-          class="w-10 h-10 bg-[#00d4aa] rounded-md flex items-center justify-center text-[#0f0f14] font-bold text-sm"
+          class="w-9 h-9 rounded-md flex items-center justify-center font-bold font-mono text-xs"
+          style="background-color:var(--primary);color:var(--primary-foreground)"
         >
           MC
         </div>
-
-        <span class="text-white font-semibold text-lg tracking-wide">
-          Martin
+        <span
+          class="font-mono text-base font-bold tracking-tight transition-colors"
+          style="color:var(--foreground)"
+          onmouseover="this.style.color='var(--primary)'"
+          onmouseout="this.style.color='var(--foreground)'"
+        >
+          MC<span style="color:var(--primary)">Portfolio</span>
         </span>
       </a>
 
-      <!-- Navigation -->
-      <div class="hidden md:flex items-center gap-8">
-        <a
-          href="#proyectos"
-          class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden lg:flex items-center gap-1"
+        aria-label="Navegación principal"
+      >
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link px-3 py-2 text-sm font-medium rounded-md relative group"
+          >
+            {link.label}
+            <span
+              class="absolute bottom-1 left-3 right-3 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+              style="background-color:var(--primary)"
+            ></span>
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-2">
+
+        <!-- Language Toggle -->
+        <div
+          class="flex items-center gap-1 rounded-lg p-1 border"
+          style="background-color:color-mix(in srgb,var(--muted) 50%,transparent);border-color:var(--border)"
         >
-          Proyectos
-        </a>
+          <button
+            id="btn-es"
+            class="lang-btn px-2.5 py-1 text-xs font-mono font-semibold rounded transition-all lang-btn-active"
+            aria-label="Cambiar a Español"
+            data-lang="ES"
+          >
+            ES
+          </button>
+          <button
+            id="btn-en"
+            class="lang-btn px-2.5 py-1 text-xs font-mono font-semibold rounded transition-all lang-btn-inactive"
+            aria-label="Switch to English"
+            data-lang="EN"
+          >
+            EN
+          </button>
+        </div>
 
-        <a
-          href="#experiencia"
-          class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
-        >
-          Experiencia
-        </a>
-
-        <a
-          href="#sobre-mi"
-          class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
-        >
-          Acerca
-        </a>
-
-        <!-- <a
-            href="#contacto"
-            class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
-            >
-            Contacto
-            </a> -->
-      </div>
-
-      <!-- Right Section -->
-      <div class="flex items-center gap-4">
         <!-- GitHub -->
         <a
           href="https://github.com/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
           aria-label="GitHub"
+          class="w-9 h-9 flex items-center justify-center rounded-lg border transition-all"
+          style="border-color:var(--border);color:var(--muted-foreground)"
+          onmouseover="this.style.color='var(--foreground)';this.style.borderColor='rgba(0,212,170,0.5)'"
+          onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
         >
-            <i class="fa-brands fa-github w-5 h-5"></i>
+          <i class="fa-brands fa-github" style="font-size:18px"></i>
         </a>
 
         <!-- LinkedIn -->
@@ -65,19 +102,107 @@
           href="https://linkedin.com/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-300 hover:text-[#00d4aa] transition-colors duration-300"
           aria-label="LinkedIn"
+          class="w-9 h-9 flex items-center justify-center rounded-lg border transition-all"
+          style="border-color:var(--border);color:var(--muted-foreground)"
+          onmouseover="this.style.color='var(--foreground)';this.style.borderColor='rgba(0,212,170,0.5)'"
+          onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
         >
-            <i class="fa-brands fa-linkedin w-5 h-5"></i>
+          <i class="fa-brands fa-linkedin" style="font-size:18px"></i>
         </a>
 
-        <!-- Language Button -->
-        <button
-          class="px-3 py-1.5 rounded-full border border-gray-600 text-sm text-gray-300 hover:text-[#00d4aa] hover:border-[#00d4aa] transition-all duration-300"
-        >
-          ES
-        </button>
       </div>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="menu-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+      >
+        <span id="bar-top"    class="block w-6 h-px transition-all duration-300" style="background-color:var(--foreground)"></span>
+        <span id="bar-middle" class="block w-4 h-px transition-all duration-300" style="background-color:var(--foreground)"></span>
+        <span id="bar-bottom" class="block w-6 h-px transition-all duration-300" style="background-color:var(--foreground)"></span>
+      </button>
+
     </div>
   </div>
-</nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 lg:hidden opacity-0 pointer-events-none transition-all duration-300"
+>
+  <div
+    id="mobile-overlay"
+    class="absolute inset-0 backdrop-blur-xl"
+    style="background-color:rgba(13,17,23,0.92)"
+  ></div>
+
+  <nav
+    class="relative z-50 flex flex-col items-center justify-center h-full gap-2 px-6"
+    aria-label="Menú móvil"
+  >
+    {navLinks.map((link, index) => (
+      <a
+        href={link.href}
+        class="mobile-nav-link w-full max-w-xs text-center py-4 text-xl font-semibold transition-colors border-b"
+        style={`color:var(--foreground);border-color:rgba(48,54,61,0.5);transition-delay:${index * 50}ms`}
+        onmouseover="this.style.color='var(--primary)'"
+        onmouseout="this.style.color='var(--foreground)'"
+      >
+        {link.label}
+      </a>
+    ))}
+
+    <div class="flex items-center gap-4 mt-8">
+
+      <a
+        href="https://github.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="w-12 h-12 flex items-center justify-center rounded-xl border transition-all"
+        style="border-color:var(--border);color:var(--muted-foreground)"
+        onmouseover="this.style.color='var(--primary)';this.style.borderColor='rgba(0,212,170,0.5)'"
+        onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
+      >
+        <i class="fa-brands fa-github" style="font-size:22px"></i>
+      </a>
+
+      <a
+        href="https://linkedin.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="w-12 h-12 flex items-center justify-center rounded-xl border transition-all"
+        style="border-color:var(--border);color:var(--muted-foreground)"
+        onmouseover="this.style.color='var(--primary)';this.style.borderColor='rgba(0,212,170,0.5)'"
+        onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
+      >
+        <i class="fa-brands fa-linkedin" style="font-size:22px"></i>
+      </a>
+
+      <!-- Lang toggle mobile -->
+      <div
+        class="flex items-center gap-1 rounded-xl p-1.5 border"
+        style="background-color:color-mix(in srgb,var(--muted) 50%,transparent);border-color:var(--border)"
+      >
+        <button
+          class="lang-btn px-3 py-1.5 text-sm font-mono font-semibold rounded-lg transition-all lang-btn-active"
+          data-lang="ES"
+        >ES</button>
+        <button
+          class="lang-btn px-3 py-1.5 text-sm font-mono font-semibold rounded-lg transition-all lang-btn-inactive"
+          data-lang="EN"
+        >EN</button>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<script>
+  import "../scripts/navbar.js";
+</script>

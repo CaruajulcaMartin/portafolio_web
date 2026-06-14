@@ -1,0 +1,239 @@
+---
+import { Icon } from "astro-icon/components";
+
+const metrics = [
+    {
+        icon: "tabler:clock",
+        value: "+2 años",
+        label: "Experiencia profesional",
+    },
+    {
+        icon: "tabler:briefcase",
+        value: "Proyectos",
+        label: "Experiencia en sistemas reales",
+    },
+    {
+        icon: "tabler:code",
+        value: "Full Stack",
+        label: "Desarrollo frontend y backend",
+    },
+    {
+        icon: "tabler:school",
+        value: "Continuo",
+        label: "Aprendizaje y mejora constante",
+    },
+];
+
+const learning = [
+    {
+        name: "Vue.js",
+        icon: "logos:vue",
+    },
+    {
+        name: "Astro",
+        icon: "logos:astro-icon",
+    },
+    {
+        name: "Laravel",
+        icon: "logos:laravel",
+    },
+    {
+        name: "Spring Boot",
+        icon: "logos:spring-icon",
+    },
+];
+---
+
+<section
+    id="sobre-mi"
+    class="py-20 lg:py-28 relative overflow-hidden"
+    aria-labelledby="about-heading"
+>
+    <div
+        class="absolute inset-0 from-transparent via-[rgba(22,27,34,0.2)] to-transparent pointer-events-none"
+        aria-hidden="true"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+
+        <!--HEADER -->
+        <div class="mb-12 lg:mb-16 reveal-on-scroll">
+            <div class="flex items-center gap-3 mb-3">
+                <span
+                class="text-xs font-mono font-semibold text-primary tracking-widest uppercase"
+                >
+                01 · Sobre mí
+                </span>
+
+                <div
+                class="flex-1 h-px border-border border-t max-w-24"
+                aria-hidden="true"
+                ></div>
+            </div>
+
+            <h2
+                id="about-heading"
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
+            >
+                Quién soy
+            </h2>
+        </div>
+
+        <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+        >
+
+            <!-- DESCRIPCION -->
+            <div class="space-y-8">
+
+                <div class="reveal-on-scroll space-y-4">
+                <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    Desarrollador web Full Stack con experiencia participando en
+                    <span class="text-foreground font-medium">
+                    análisis, desarrollo, mantenimiento y mejora
+                    </span>
+                    de sistemas web.
+                </p>
+
+                <p class="text-base text-muted-foreground leading-relaxed">
+                    Interesado en el aprendizaje continuo y en la construcción de
+                    soluciones que aporten
+                    <span class="text-primary font-medium">
+                    valor real
+                    </span>
+                    a usuarios e instituciones.
+                </p>
+                </div>
+
+                <!-- CURSOS -->
+                <div class="reveal-on-scroll">
+                <div class="p-5 sm:p-6 bg-card border border-border rounded-xl">
+
+                    <div class="flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-book-open text-primary text-sm"></i>
+
+                    <span class="text-sm font-semibold text-foreground">
+                        Actualmente fortaleciendo
+                    </span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                    {
+                        learning.map((item) => (
+                        <div
+                            class="flex items-center gap-2.5 p-3 bg-muted rounded-lg border border-border hover:border-primary/30 transition-colors"
+                        >
+                            <div
+                            class="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center shrink-0"
+                            >
+                            <Icon
+                                name={item.icon}
+                                class="w-4 h-4"
+                            />
+                            </div>
+
+                            <span
+                            class="text-sm font-mono font-medium text-foreground"
+                            >
+                            {item.name}
+                            </span>
+                        </div>
+                        ))
+                    }
+                    </div>
+                </div>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="reveal-on-scroll flex flex-wrap gap-3">
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-foreground bg-card border border-border rounded-lg hover:border-primary/50 hover:bg-muted transition-all"
+                    aria-label="Ver perfil de GitHub"
+                >
+                    <i class="fa-brands fa-github text-primary"></i>
+                    GitHub
+                </a>
+
+                <a
+                    href="https://linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-foreground bg-card border border-border rounded-lg hover:border-primary/50 hover:bg-muted transition-all"
+                    aria-label="Ver perfil de LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin text-primary"></i>
+                    LinkedIn
+                </a>
+
+                </div>
+            </div>
+
+            <!-- METRICAS -->
+            <div class="stagger-children grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                {
+                metrics.map((metric) => (
+                    <div
+                    class="reveal-on-scroll p-5 sm:p-6 bg-card border border-border rounded-xl card-lift"
+                    >
+                    <div
+                        class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                    >
+                        <Icon
+                            name={metric.icon}
+                            class="w-5 h-5 text-primary"
+                        />
+                    </div>
+
+                    <div
+                        class="text-xl sm:text-2xl font-bold font-mono text-foreground mb-1"
+                    >
+                        {metric.value}
+                    </div>
+
+                    <div
+                        class="text-sm text-muted-foreground leading-snug"
+                    >
+                        {metric.label}
+                    </div>
+                    </div>
+                ))
+                }
+
+                <!-- OPORTUNIDAD -->
+                <div
+                class="reveal-on-scroll sm:col-span-2 p-5 bg-primary/5 border border-primary/20 rounded-xl"
+                >
+                <div class="flex items-start gap-3">
+
+                    <div
+                    class="w-2 h-2 bg-primary rounded-full animate-pulse mt-1.5 shrink-0"
+                    aria-hidden="true"
+                    ></div>
+
+                    <div>
+                    <div class="text-sm font-semibold text-primary mb-1">
+                        Abierto a oportunidades
+                    </div>
+
+                    <div class="text-sm text-muted-foreground">
+                        Disponible para posiciones Full Stack, roles remotos y proyectos freelance.
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    import "../scripts/about.js";
+</script>

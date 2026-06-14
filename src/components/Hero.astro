@@ -1,0 +1,321 @@
+---
+const codeLines = [
+    { indent: 0, content: "const developer = {", color: "var(--foreground)" },
+    { indent: 1, content: 'name: "Luis Martin C.",', color: "var(--primary)" },
+    { indent: 1, content: 'role: "Full Stack Dev",', color: "var(--primary)" },
+    {
+        indent: 1,
+        content: 'stack: ["Vue", "Laravel",',
+        color: "var(--muted-foreground)",
+    },
+    {
+        indent: 2,
+        content: '"React", "Spring Boot"],',
+        color: "var(--muted-foreground)",
+    },
+    { indent: 1, content: "available: true,", color: "#4ade80" },
+    { indent: 0, content: "};", color: "var(--foreground)" },
+];
+
+const stats = [
+    { value: "+2", label: "Años de experiencia" },
+    { value: "5+", label: "Proyectos reales" },
+    { value: "10+", label: "Tecnologías" },
+];
+---
+
+<section
+    id="inicio"
+    class="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden noise-overlay"
+    aria-label="Presentación principal"
+>
+    <!-- Background grid -->
+    <div
+        class="absolute inset-0 grid-bg opacity-30 pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+
+    <!-- Atmospheric blobs -->
+    <div
+        class="absolute top-1/4 left-1/4 w-96 h-96 blob-primary pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute bottom-1/4 right-1/4 w-80 h-80 blob-secondary pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- LEFT: Text Content -->
+        <div class="space-y-6 lg:space-y-8">
+            <!-- Badge "Disponible" -->
+            <div
+            class="anim-fade-up anim-fade-up-delay-1 inline-flex items-center gap-2 px-4 py-2 rounded-full border"
+            style="background-color:rgba(0,212,170,0.1);border-color:rgba(0,212,170,0.3)"
+            >
+            <span
+                class="w-2 h-2 rounded-full animate-pulse"
+                style="background-color:var(--primary)"
+                aria-hidden="true"></span>
+            <span
+                class="text-xs font-mono font-semibold tracking-widest uppercase"
+                style="color:var(--primary)"
+            >
+                Disponible para trabajar
+            </span>
+            </div>
+
+            <!-- Name -->
+            <div class="anim-fade-up anim-fade-up-delay-2 space-y-2">
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
+                style="color:var(--foreground)"
+            >
+                Luis Martin
+                <br />
+                <span class="text-gradient">Caruajulca</span>
+                <br />
+                Rimarachin
+            </h1>
+            </div>
+
+            <!-- Role -->
+            <div class="anim-fade-up anim-fade-up-delay-3">
+            <p
+                class="text-lg sm:text-xl font-mono"
+                style="color:var(--muted-foreground)"
+            >
+                <span style="color:rgba(0,212,170,0.7)">~/</span>
+                Desarrollador Web Full Stack
+                <span class="animate-blink ml-0.5" style="color:var(--primary)">|</span
+                >
+            </p>
+            </div>
+
+            <!-- Description -->
+            <div class="anim-fade-up anim-fade-up-delay-4">
+            <p
+                class="text-base sm:text-lg leading-relaxed max-w-lg border-l-2 pl-4"
+                style="color:var(--muted-foreground);border-color:rgba(0,212,170,0.4)"
+            >
+                Desarrollador web enfocado en la creación de aplicaciones modernas,
+                escalables y mantenibles utilizando tecnologías frontend y backend.
+            </p>
+            </div>
+
+            <!-- CTAs -->
+            <div
+            class="anim-fade-up anim-fade-up-delay-5 flex flex-col sm:flex-row gap-3"
+            >
+            <a
+                href="#proyectos"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold text-sm rounded-lg transition-all glow-primary-hover shadow-lg"
+                style="background-color:var(--primary);color:var(--primary-foreground);box-shadow:0 10px 15px -3px rgba(0,212,170,0.2)"
+                onmouseover="this.style.opacity='0.9'"
+                onmouseout="this.style.opacity='1'"
+            >
+                <i class="fa-solid fa-folder-open"></i>
+                Ver proyectos
+            </a>
+            <a
+                href="#contacto"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold text-sm rounded-lg border transition-all"
+                style="border-color:var(--border);color:var(--foreground)"
+                onmouseover="this.style.borderColor='rgba(0,212,170,0.5)';this.style.backgroundColor='rgba(255,255,255,0.05)'"
+                onmouseout="this.style.borderColor='var(--border)';this.style.backgroundColor='transparent'"
+            >
+                <i class="fa-solid fa-envelope"></i>
+                Contactar
+            </a>
+            </div>
+
+            <!-- Stats bar -->
+            <div
+            class="anim-fade-up anim-fade-up-delay-5 grid grid-cols-3 gap-4 pt-4 border-t"
+            style="border-color:var(--border)"
+            >
+            {
+                stats.map((stat) => (
+                <div class="text-center sm:text-left">
+                    <div
+                    class="text-2xl font-bold font-mono"
+                    style="color:var(--primary)"
+                    >
+                    {stat.value}
+                    </div>
+                    <div
+                    class="text-xs mt-0.5 leading-tight"
+                    style="color:var(--muted-foreground)"
+                    >
+                    {stat.label}
+                    </div>
+                </div>
+                ))
+            }
+            </div>
+        </div>
+
+        <!-- RIGHT: Code Visual -->
+        <div
+            class="relative flex justify-center lg:justify-end anim-fade-up anim-fade-up-delay-3"
+        >
+            <div class="relative w-72 sm:w-80 lg:w-96">
+            <!-- Outer glow ring -->
+            <div
+                class="absolute -inset-4 pointer-events-none"
+                style="border-radius:12rem;border:1px solid rgba(0,212,170,0.1)"
+                aria-hidden="true"
+            >
+            </div>
+
+            <!-- Main arch card -->
+            <div
+                class="arch-shape border overflow-hidden relative glow-primary animate-float"
+                style="background-color:var(--card);border-color:var(--border)"
+            >
+                <!-- Top gradient -->
+                <div
+                class="absolute top-0 left-0 right-0 h-32 pointer-events-none"
+                style="background:linear-gradient(to bottom,rgba(0,212,170,0.1),transparent)"
+                aria-hidden="true"
+                >
+                </div>
+
+                <!-- Code content -->
+                <div class="p-6 pt-10 pb-8 relative z-10">
+                <!-- Window dots -->
+                <div class="flex gap-1.5 mb-6" aria-hidden="true">
+                    <div
+                    class="w-2.5 h-2.5 rounded-full"
+                    style="background-color:rgba(239,68,68,0.6)"
+                    >
+                    </div>
+                    <div
+                    class="w-2.5 h-2.5 rounded-full"
+                    style="background-color:rgba(234,179,8,0.6)"
+                    >
+                    </div>
+                    <div
+                    class="w-2.5 h-2.5 rounded-full"
+                    style="background-color:rgba(74,222,128,0.6)"
+                    >
+                    </div>
+                    <span
+                    class="ml-2 text-xs font-mono"
+                    style="color:var(--muted-foreground)">developer.ts</span
+                    >
+                </div>
+
+                <!-- Code lines -->
+                <div
+                    class="space-y-1.5 font-mono text-sm"
+                    aria-label="Fragmento de código ilustrativo"
+                >
+                    {
+                    codeLines.map((line, i) => (
+                        <div
+                        class="hero-code-line flex"
+                        style={`padding-left:${line.indent * 16}px;animation-delay:${i * 0.3}s;color:${line.color}`}
+                        >
+                        <span
+                            class="select-none mr-3 text-xs w-4 text-right shrink-0"
+                            style="color:rgba(139,148,158,0.4)"
+                        >
+                            {i + 1}
+                        </span>
+                        <span>{line.content}</span>
+                        </div>
+                    ))
+                    }
+                </div>
+
+                <!-- Status indicator -->
+                <div
+                    class="mt-6 p-3 rounded-lg border"
+                    style="background-color:rgba(0,212,170,0.05);border-color:rgba(0,212,170,0.2)"
+                >
+                    <div class="flex items-center gap-2">
+                    <div
+                        class="w-1.5 h-1.5 rounded-full animate-pulse"
+                        style="background-color:#4ade80"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <span class="text-xs font-mono" style="color:#4ade80"
+                        >Compilado exitosamente</span
+                    >
+                    </div>
+                    <div
+                    class="mt-1 text-xs font-mono"
+                    style="color:var(--muted-foreground)"
+                    >
+                    0 errores · 0 advertencias
+                    </div>
+                </div>
+                </div>
+
+                <!-- Bottom info card -->
+                <div
+                class="mx-4 mb-6 p-3 rounded-lg backdrop-blur-sm border"
+                style="background-color:rgba(33,38,45,0.5);border-color:rgba(48,54,61,0.5)"
+                >
+                <div class="flex items-center gap-2 mb-1.5">
+                    <i
+                    class="fa-solid fa-location-dot text-xs"
+                    style="color:var(--primary)"></i>
+                    <span
+                    class="text-xs font-mono"
+                    style="color:var(--muted-foreground)">Perú · Full Remote</span
+                    >
+                </div>
+                <div class="flex flex-wrap gap-1">
+                    {
+                    ["Frontend", "Backend", "DB"].map((tag) => (
+                        <span
+                        class="px-2 py-0.5 text-xs font-mono rounded border"
+                        style="background-color:rgba(0,212,170,0.1);color:var(--primary);border-color:rgba(0,212,170,0.2)"
+                        >
+                        {tag}
+                        </span>
+                    ))
+                    }
+                </div>
+                </div>
+            </div>
+
+            <!-- Rotating badge -->
+            <div
+                class="absolute -top-4 -right-4 w-20 h-20 pointer-events-none"
+                aria-hidden="true"
+            >
+                <svg viewBox="0 0 100 100" class="animate-spin-slow w-full h-full">
+                <path
+                    id="badgePath"
+                    d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                    fill="transparent"></path>
+                <text
+                    font-size="9.5"
+                    font-family="monospace"
+                    font-weight="600"
+                    letter-spacing="2px"
+                    fill="#00d4aa"
+                >
+                    <textPath href="#badgePath" startOffset="0%">
+                    FULL STACK · DEVELOPER ·
+                    </textPath>
+                </text>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-code" style="color:var(--primary)"></i>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</section>

@@ -2,34 +2,96 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[#1a1a24] py-6">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-
-        <!-- Copyright -->
-        <p class="text-sm text-gray-500">
+<footer
+    class="relative z-10 border-t"
+    style="border-color:var(--border);background-color:var(--background)"
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+        <!-- Top Row -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <!-- Logo + Copyright -->
+        <div class="flex items-center gap-3">
+            <div
+            class="w-7 h-7 rounded-md flex items-center justify-center font-bold font-mono text-xs"
+            style="background-color:var(--primary);color:var(--primary-foreground)"
+            >
+            MC
+            </div>
+            <span class="text-sm font-mono" style="color:var(--muted-foreground)">
             Martin Caruajulca © {currentYear}
-        </p>
-
-        <!-- Social Links -->
-        <div class="flex items-center gap-6">
-            <a
-                href="https://linkedin.com/in/TU-USUARIO"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-400 hover:text-[#00d4aa] transition-colors duration-300"
-            >
-                LinkedIn
-            </a>
-
-            <a
-                href="https://github.com/TU-USUARIO"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-400 hover:text-[#00d4aa] transition-colors duration-300"
-            >
-                GitHub
-            </a>
+            </span>
         </div>
 
+        <!-- Social Links -->
+        <div class="flex items-center gap-3">
+            <a
+            href="https://github.com/TU-USUARIO"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub de Martin"
+            class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all"
+            style="color:var(--muted-foreground);border-color:var(--border)"
+            onmouseover="this.style.color='var(--foreground)';this.style.borderColor='rgba(0,212,170,0.5)'"
+            onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
+            >
+            <i class="fa-brands fa-github text-sm"></i>
+            GitHub
+            </a>
+
+            <a
+            href="https://linkedin.com/in/TU-USUARIO"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn de Martin"
+            class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all"
+            style="color:var(--muted-foreground);border-color:var(--border)"
+            onmouseover="this.style.color='var(--foreground)';this.style.borderColor='rgba(0,212,170,0.5)'"
+            onmouseout="this.style.color='var(--muted-foreground)';this.style.borderColor='var(--border)'"
+            >
+            <i class="fa-brands fa-linkedin-in text-sm"></i>
+            LinkedIn
+            </a>
+        </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div
+        class="mt-6 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-2"
+        style="border-color:var(--border)"
+        >
+        <span class="text-xs font-mono" style="color:var(--muted-foreground)">
+            Desarrollador Web Full Stack · Perú
+        </span>
+
+        <div
+            class="flex items-center gap-4 text-xs"
+            style="color:var(--muted-foreground)"
+        >
+            <a
+            href="#inicio"
+            class="transition-colors"
+            onmouseover="this.style.color='var(--foreground)'"
+            onmouseout="this.style.color='var(--muted-foreground)'">Inicio</a
+            >
+
+            <span aria-hidden="true">·</span>
+
+            <a
+            href="#proyectos"
+            class="transition-colors"
+            onmouseover="this.style.color='var(--foreground)'"
+            onmouseout="this.style.color='var(--muted-foreground)'">Proyectos</a
+            >
+
+            <span aria-hidden="true">·</span>
+
+            <a
+            href="#contacto"
+            class="transition-colors"
+            onmouseover="this.style.color='var(--foreground)'"
+            onmouseout="this.style.color='var(--muted-foreground)'">Contacto</a
+            >
+        </div>
+        </div>
     </div>
 </footer>

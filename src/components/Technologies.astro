@@ -1,0 +1,142 @@
+---
+import { Icon } from "astro-icon/components";
+
+const techCategories = [
+    {
+        label: "Frontend",
+        techs: [
+        { name: "HTML5", icon: "logos:html-5" },
+        { name: "CSS3", icon: "logos:css-3" },
+        { name: "JavaScript", icon: "logos:javascript" },
+        { name: "TypeScript", icon: "logos:typescript-icon" },
+        { name: "Vue.js", icon: "logos:vue" },
+        { name: "React", icon: "logos:react" },
+        { name: "Angular", icon: "logos:angular-icon" },
+        { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+        { name: "Bootstrap", icon: "logos:bootstrap" },
+        { name: "Astro", icon: "logos:astro-icon" },
+        ],
+    },
+
+    {
+        label: "Backend",
+        techs: [
+        { name: "PHP", icon: "logos:php" },
+        { name: "Laravel", icon: "logos:laravel" },
+        { name: "Java", icon: "logos:java" },
+        { name: "Spring Boot", icon: "logos:spring-icon" },
+        ],
+    },
+
+    {
+        label: "Base de datos",
+        techs: [
+        { name: "MySQL", icon: "logos:mysql" },
+        ],
+    },
+
+    {
+        label: "Herramientas",
+        techs: [
+        { name: "Git", icon: "logos:git-icon" },
+        { name: "GitHub", icon: "logos:github-icon" },
+        { name: "Figma", icon: "logos:figma" },
+        { name: "VS Code", icon: "logos:visual-studio-code" },
+        ],
+    },
+];
+---
+
+
+<section
+    id="tecnologias"
+    class="py-20 lg:py-28 relative overflow-hidden"
+    aria-labelledby="tech-heading"
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <!-- Header -->
+        <div class="mb-10 lg:mb-14 reveal-on-scroll">
+            <div class="flex items-center gap-3 mb-3">
+                <span
+                class="text-xs font-mono font-semibold text-primary tracking-widest uppercase"
+                >
+                02 · Tecnologías
+                </span>
+
+                <div
+                class="flex-1 h-px border-border border-t max-w-24"
+                aria-hidden="true"
+                ></div>
+            </div>
+
+            <h2
+                id="tech-heading"
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
+            >
+                Stack técnico
+            </h2>
+
+            <p class="mt-3 text-base text-muted-foreground max-w-xl">
+                Tecnologías con las que desarrollo soluciones web completas.
+            </p>
+        </div>
+
+        {
+        techCategories.map((category) => (
+            <div class="mb-10">
+
+            <h3
+                class="text-lg font-semibold text-primary mb-5 reveal-on-scroll"
+            >
+                {category.label}
+            </h3>
+
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4"
+            >
+                {
+                category.techs.map((tech) => (
+                    <div
+                    class="reveal-on-scroll tech-card-inner bg-card border border-border rounded-xl p-4 sm:p-5 flex flex-col items-center gap-3"
+                    >
+                    <div
+                        class="w-12 h-12 flex items-center justify-center"
+                    >
+                        <Icon
+                        name={tech.icon}
+                        class="w-10 h-10"
+                        />
+                    </div>
+
+                    <span
+                        class="text-xs sm:text-sm font-mono font-medium text-foreground text-center"
+                    >
+                        {tech.name}
+                    </span>
+                    </div>
+                ))
+                }
+            </div>
+
+            </div>
+        ))
+        }
+
+        <div class="mt-8 reveal-on-scroll">
+            <p class="text-xs font-mono text-muted-foreground">
+                <span class="text-primary font-semibold">
+                {
+                    techCategories.reduce(
+                    (acc, category) => acc + category.techs.length,
+                    0
+                    )
+                }
+                </span>
+                {" "}
+                tecnologías en el stack
+            </p>
+        </div>
+
+    </div>
+</section>
