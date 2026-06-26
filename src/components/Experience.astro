@@ -1,0 +1,139 @@
+---
+import { Icon } from "astro-icon/components";
+
+const experiences = [
+    {
+        id: "icacit",
+        company: "ICACIT",
+        role: "Analista Programador",
+        location: "Lima, Perú",
+        period: "Feb 2025 – Ene 2026",
+        type: "Agencia Acreditadora Internacional",
+        responsibilities: [
+            "Desarrollo de sistemas y módulos con PHP y MySQL bajo arquitectura MVC.",
+            "Análisis de requerimientos y traducción a soluciones técnicas funcionales.",
+            "Soporte y resolución de incidencias en sistemas SISI y SICE.",
+            "Optimización de módulos para mejorar rendimiento y experiencia de usuario.",
+            "Implementación de mejoras en interfaces frontend (HTML, CSS, JavaScript)."
+        ],
+        techs: [
+            { icon: "logos:php", label: "PHP" },
+            { icon: "logos:mysql", label: "MySQL" },
+            { icon: "logos:html-5", label: "HTML" },
+            { icon: "logos:css-3", label: "CSS" },
+            { icon: "logos:javascript", label: "JavaScript" },
+        ],
+    },
+    {
+        id: "maquirepuestos",
+        company: "MAQUIREPUESTOS",
+        role: "Desarrollador Web Freelance",
+        location: "Lima, Perú",
+        period: "Ene 2024 – Ago 2024",
+        type: "Empresa Comercial",
+        responsibilities: [
+            "Diseño y desarrollo de sitio web corporativo con HTML, CSS, Bootstrap y Angular.",
+            "Implementación de catálogo de productos con filtros dinámicos y formulario de cotización.",
+            "Gestión completa del ciclo de vida del proyecto: requerimientos, diseño, desarrollo y soporte.",
+            "Comunicación continua con el cliente asegurando su satisfacción total."
+        ],
+        techs: [
+            { icon: "logos:html-5", label: "HTML" },
+            { icon: "logos:css-3", label: "CSS" },
+            { icon: "logos:javascript", label: "JavaScript" },
+            { icon: "logos:bootstrap", label: "Bootstrap" },
+            { icon: "logos:angular-icon", label: "Angular" },
+        ],
+    },
+];
+---
+
+<section id="experiencia" class="py-16 lg:py-24 relative" aria-labelledby="experience-heading">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6">
+
+        <!-- HEADER -->
+        <div class="mb-10 lg:mb-14">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="text-xs font-mono font-semibold text-primary tracking-widest uppercase">
+                    04 · Experiencia
+                </span>
+                <div class="flex-1 h-px bg-border max-w-24" aria-hidden="true"></div>
+            </div>
+            <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
+                Trayectoria profesional
+            </h2>
+            <p class="mt-3 text-base text-muted-foreground max-w-2xl">
+                Mi recorrido profesional construyendo soluciones digitales para diferentes industrias
+            </p>
+        </div>
+
+        <!-- EXPERIENCE GRID - 2 COLUMNAS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {experiences.map((exp) => (
+                <div
+                    class="group bg-card border border-border rounded-xl p-5 sm:p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-md flex flex-col h-full"
+                >
+                    <!-- HEADER -->
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                                <span class="text-[10px] font-mono font-semibold text-primary uppercase tracking-widest">
+                                    {exp.type}
+                                </span>
+                                <span class="text-xs text-muted-foreground">•</span>
+                                <span class="text-[10px] font-mono text-muted-foreground">
+                                    {exp.location}
+                                </span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                                {exp.company}
+                            </h3>
+                            <p class="text-sm font-medium text-muted-foreground mt-0.5">
+                                {exp.role}
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-muted/30 border border-border rounded-lg self-start shrink-0">
+                            <Icon name="tabler:calendar" class="w-3.5 h-3.5 text-muted-foreground" />
+                            <span class="text-[10px] font-mono text-muted-foreground whitespace-nowrap">
+                                {exp.period}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- RESPONSIBILITIES -->
+                    <div class="mb-4 flex-1">
+                        <h4 class="text-[10px] font-mono font-semibold text-muted-foreground uppercase tracking-widest mb-2">
+                            Responsabilidades
+                        </h4>
+                        <ul class="space-y-1.5">
+                            {exp.responsibilities.map((item) => (
+                                <li class="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed">
+                                    <div class="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" aria-hidden="true"></div>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <!-- TECHNOLOGIES -->
+                    <div>
+                        <h4 class="text-[10px] font-mono font-semibold text-muted-foreground uppercase tracking-widest mb-2">
+                            Tecnologías
+                        </h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            {exp.techs.map((tech) => (
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono bg-primary/5 text-primary border border-primary/20 rounded-md hover:bg-primary/10 transition-colors duration-200"
+                                >
+                                    <Icon name={tech.icon} class="w-3.5 h-3.5" />
+                                    {tech.label}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+    </div>
+</section>
